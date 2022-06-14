@@ -267,15 +267,15 @@ function renderizarProductos() {
 
     BBDD.forEach((e) => {
 
-      let productoHTML = ''
-      /*`
+      let productoHTML =
+      `
         <img src="${e.img}" alt=BURGER" style="width:100%">
         <h1>${e.nombre}</h1>
         <p class="price">${e.precio}$</p>
         <p>Hamburguesa vegetariana de garbanzos con cebolla tomate y lechuga con guarnicion de calabazas fritas</p>
         <p><button onclick="agregarProductoAlCarrito(${e.id})">Add to Cart</button></p>
-      </div>     
-        `*/
+           
+        `
         tienda.innerHTML += productoHTML 
     });
 
@@ -310,17 +310,15 @@ function renderizarCarrito(){
 
     carrito.forEach((producto, id)=>{
         
-        html += ''
-        /* `
-        <div class="card">
+        html += 
+        `
       <img src="${producto.img}" alt=BURGER" style="width:100%">
       <h1>${producto.nombre}</h1>
       <p class="price">${producto.precio}$</p>
       <p>Cantidad: ${producto.cantidad}</p>
       <p><button onClick="eliminarProductoDelCarrito(${id})">Quit to Cart</button>
-    </div>
-         ` */
-    })
+      `
+            })
 
     carritoHTML.innerHTML = html;
 
