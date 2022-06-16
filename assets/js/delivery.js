@@ -1,4 +1,5 @@
-const BBDD = [{
+const BBDD = [
+    {
         "id": 1,
         "nombre": "Burguer Clasic 1",
         "img": "/assets/img/menu/burger4.jpg",
@@ -260,14 +261,13 @@ let total = 0;
 function renderizarProductos() {
 
     let tienda = document.getElementById('tienda');
- 
-   let filtro = document.getElementById('filtro');
+    let filtro = document.getElementById('filtro');
     filtro.innerHTML = `
-    <button class="btn btn-warning mb-5" onclick="filtroprecio()">Filtrar Precio mayor a $500</button>` 
+     <button class="btn btn-warning mb-5" onclick="filtroprecio()">Filtrar Precio mayor a $500</button>` 
 
     BBDD.forEach((e) => {
 
-      let productoHTML =
+      let productoHTML = 
       `
         <img src="${e.img}" alt=BURGER" style="width:100%">
         <h1>${e.nombre}</h1>
@@ -279,14 +279,15 @@ function renderizarProductos() {
         tienda.innerHTML += productoHTML 
     });
 
-} 
-
 renderizarProductos();
+
+} 
 
 function agregarProductoAlCarrito(id){
 
     let producto = BBDD.find(producto => producto.id == id);
-    let productoEnCarrito = carrito.find(producto => producto.id == id);
+  
+   let productoEnCarrito = carrito.find(producto => producto.id == id);
     
     if(productoEnCarrito){
         
@@ -298,8 +299,7 @@ function agregarProductoAlCarrito(id){
         carrito.push(producto);
              
     }
-
-    renderizarCarrito(); 
+   renderizarCarrito(); 
 }
 
 function renderizarCarrito(){
@@ -311,14 +311,13 @@ function renderizarCarrito(){
     carrito.forEach((producto, id)=>{
         
         html += 
-        `
-      <img src="${producto.img}" alt=BURGER" style="width:100%">
-      <h1>${producto.nombre}</h1>
-      <p class="price">${producto.precio}$</p>
-      <p>Cantidad: ${producto.cantidad}</p>
-      <p><button onClick="eliminarProductoDelCarrito(${id})">Quit to Cart</button>
-      `
-            })
+         `
+       <img src="${producto.img}" alt=BURGER" style="width:100%">
+       <h1>${producto.nombre}</h1>
+       <p class="price">${producto.precio}$</p>
+       <p><button onClick="eliminarProductoDelCarrito${producto.cantidad}">Quit to Cart</button>
+       `
+      })
 
     carritoHTML.innerHTML = html;
 
@@ -326,18 +325,16 @@ function renderizarCarrito(){
 
 }
 
-
 function calcularTotal(){
 
     carrito.forEach((producto) => {
         
      
-        total += producto.precio * producto.cantidad;
+        total = producto.precio * producto.cantidad;
     })
     
-   console.log(total)
-
 }
+
 
 const eliminarProductoDelCarrito = (id)=> {
 
@@ -360,3 +357,4 @@ function filtroPrecio(){
     console.log(bd);
 
 }
+

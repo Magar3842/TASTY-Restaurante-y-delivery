@@ -66,7 +66,7 @@
     </div>
   </header>
   <main>
-    <section class="dis-to">
+    <section class="dis-to"> 
       <div>
         <h1 class="text-center">Nuestras propuestas</h1>
       </div>
@@ -74,13 +74,14 @@
         <button class="btn btn-warning mb-5" onclick="filtroPrecio()">Filtar precio mayor a $500</button>
       </div>
       <section class="row d-flex justify-content-justify align-item-center pad-20" id="tienda">
+      <!-- <section id='carrito'> -->
         <div class="card">
         <img src="/assets/img/menu/burger4.jpg" alt=BURGER" style="width:100%">
           <h1>Burguer Clasic 1</h1>
           <p>Hambueguesa vegetariana de garbanzos con cebolla, tomate y lechuga y guarnicion de calabazas fritas.</p>
           <p class="price">$750,00.</p>
           <p><button onclick="agregarProductoAlCarrito(1)">Add to Cart</button></p>
-          <p><button onClick="eliminarProductoDelCarrito(2)">Quit to Cart</button></p>
+          <p><button onClick="eliminarProductoDelCarrito(1)">Quit to Cart</button></p>
           </div>
         <div class="card">
           <img src="/assets/img/menu/burguefritas.jpg" alt="BURGER" style="width:100%">
@@ -362,8 +363,9 @@
           <p class="price">$1.000,00.</p>
           <p><button onclick="agregarProductoAlCarrito(36)">Add to Cart</button></p>
           <p><button onClick="eliminarProductoDelCarrito(36)">Quit to Cart</button></p>
-        </div> 
+        </div>
       </section>
+    </section>
   </main>
   <footer>
     <div class="container">
