@@ -1,4 +1,4 @@
-/*const mediopago= prompt ("Ingrese el medio de pago").toLowerCase ()
+const mediopago= prompt ("Ingrese el medio de pago").toLowerCase ()
 const montoapagar= Number(prompt("ingrese el monto de la compra"))
 
 let interes
@@ -22,4 +22,4 @@ alert ("tu monto a pagar con " + mediopago + " es de pesos " + montoapagar * int
 
 if (mediopago === "efectivo") {
     alert ("tu monto a pagar con " + mediopago + " es de pesos " + montoapagar * descuento)
-}*/
+}

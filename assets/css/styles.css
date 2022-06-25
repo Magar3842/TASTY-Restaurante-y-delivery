@@ -10,7 +10,7 @@
 html {
     font-family: 'Roboto', sans-serif;
     font-size: 10px;
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
     width: 100%;
     height: 100%;
     color: black
@@ -57,12 +57,13 @@ header {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), transparent);
 }
 
-.nav {
-    height: 7.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+/* .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+} */
 
 .menu-toggle {
     color: aliceblue;
@@ -134,6 +135,7 @@ header {
 
 .nav-item {
     border-bottom: 2px solid rgba(255, 255, 255, .3);
+    text-decoration: none;
 }
 
 .nav-link {
@@ -143,7 +145,7 @@ header {
     font-size: 1.6rem;
     letter-spacing: 2px;
     margin-right: -2px;
-}
+  }
 
 .nav-link:hover {
     color: blue;
@@ -375,7 +377,7 @@ footer {
     padding: 7.9rem;
 }    
 .menu-toggle {
-    display: none;
+    display:list-item;
 }
 .nav {
     justify-content: space-between;
@@ -575,16 +577,17 @@ footer {
 }
 
 /*card menues*/
-  
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 200px;
     margin: auto;
     text-align: center;
     font-family: arial;
-  }
+        
+    }
   
-  .price {
+  .precioProducto {
     color: grey;
     font-size: 22px;
   }
@@ -605,7 +608,8 @@ footer {
     opacity: 0.7;
   }
 
-
+  /*CUADRO DETALLE COMPRA*/
+  
   .modal-header {
     background-color: rgb(2, 254, 212);
     color: black;
@@ -625,10 +629,9 @@ footer {
     background-color: rgb(19, 18, 18);
     color: rgb(2, 254, 220);
     border: 1px solid;
-  }
+  } 
 
   .carrito > div {
-    border: 1px solid rgb(49, 29, 49);
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
@@ -652,12 +655,12 @@ footer {
     color: rgb(172, 169, 166);
   }
   
-  .price {
+  .precio {
     font-size: 2.5em;
     color: rgb(204, 158, 9);
   }
   
-  .description {
+  .descripcion {
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -812,7 +815,7 @@ footer {
   
   .total {
     color: rgb(2, 254, 233);
-    font-size: 20px;
+    font-size: 1rem;
   }
   
   .monto {
@@ -851,4 +854,105 @@ footer {
 .row {
   margin: 0;
   padding: 0;
+}
+
+/*carrito compras*/
+
+#boton-carrito {
+  border: none;
+  color: rgb(30, 156, 120);
+  font-size: 30px;
+  padding: 0px 0px;
+  transition: all .3s;
+}
+#boton-carrito:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(181, 88, 131);
+}
+#boton-carrito:focus {
+  outline: none;
+}
+
+.modal-contenedor {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-carrito {
+  position: relative;
+  background-color: white;
+  min-width: 500px;
+  padding: 20px;
+  margin-top: -100%;
+  transition: all .5s;
+}
+
+.modal-active .modal-carrito {
+  margin-top: 0;
+}
+
+.modal-carrito h3 {
+  color: rgb(65, 188, 225);
+  padding-bottom: 5px;
+}
+.modal-carrito #carritoCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  color: rgb(65, 185, 225);
+  border: none;
+  background-color: white;
+}
+.modal-carrito #carritoCerrar:hover {
+  cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+  outline: none;
+}
+.modal-carrito .precioProducto {
+  padding-top: 10px;
+  
+}
+
+.productoEnCarrito {
+  border-left: 5px solid rgb(81, 217, 156);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.productoEnCarrito:hover {
+  border-left: 5px solid royalblue;
+}
+
+.boton-eliminar {
+  background-color: white;
+  color: red;
+  border: none;
+  font-size: 20px;
+}
+
+.boton-eliminar:hover {
+  cursor: pointer;
+}
+.boton-eliminar:focus {
+  outline: none;
 }
