@@ -19,3 +19,6 @@ modalCarrito.addEventListener('click', (event)=>{
     // console.log(event)
     event.stopPropagation()
 })
+
+/*filtro productos*/
+

@@ -21,7 +21,7 @@ html {
 } */
 
 section {
-    padding: 3.9rem 0;
+    padding: 3rem 0;
     overflow: hidden;
 }
 
@@ -608,6 +608,15 @@ footer {
     opacity: 0.7;
   }
 
+  #contenedor-productos {
+    max-width: 95%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    padding-left: 2px;
+}
   /*CUADRO DETALLE COMPRA*/
   
   .modal-header {
@@ -956,3 +965,59 @@ footer {
 .boton-eliminar:focus {
   outline: none;
 }
+
+.background--primary, .background--primary-hover:hover {
+  background-color: #4bddbe;
+}
+
+.header-announcement__text {
+  text-align: center;
+  padding: 0px 0px;
+  box-sizing: border-box;
+  font-size: 1.9375rem;
+}
+
+.contrast_text--primary, .contrast_text--primary-hover:hover {
+  color: #ffffff;
+}
+
+/*filtro consulta*/
+
+.wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#search-container {
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+}
+#search-container input {
+  background-color: transparent;
+  width: 50%;
+  border-bottom: 2px solid #110f29;
+  padding: 1em 0.3em;
+}
+#search-container input:focus {
+  border-bottom-color: #09693c;
+}
+#search-container button {
+  padding: 1em 1em;
+  margin-left: 1em;
+  background-color: #0b8574;
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 0.5em;
+ 
+}
+.button-value {
+  border: 3px solid #0f9669;
+  padding: 1em 2.2em;
+  border-radius: 3em;
+  background-color: transparent;
+  color: #6759ff;
+  cursor: pointer;
+}
+
+
