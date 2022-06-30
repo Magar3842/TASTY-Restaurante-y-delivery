@@ -992,6 +992,7 @@ footer {
   margin: 1em 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 #search-container input {
   background-color: transparent;
@@ -1009,6 +1010,7 @@ footer {
   color: #ffffff;
   border-radius: 5px;
   margin-top: 0.5em;
+  
  
 }
 .button-value {

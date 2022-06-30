@@ -116,7 +116,7 @@ if (carritoEnLS) {
 
 for (let categoria of "contenedor-productos") {
    
-    document.getElementById("categoria").append(div.producto);
+    document.getElementById("categoria").append(div.card);
   }
  
 
@@ -132,10 +132,9 @@ for (let categoria of "contenedor-productos") {
         button.classList.remove("active");
       }
     });
-  
- 
+   
    //select all cards
-    let elements = document.querySelectorAll(".categoria");
+    let elements = document.querySelectorAll("contenedor-productos");
     //loop through all cards
     elements.forEach((element) => {
       //display all cards on 'all' button click
@@ -154,12 +153,13 @@ for (let categoria of "contenedor-productos") {
     });
   }
   
+  console.log (element)
 
   //Search button click
   document.getElementById("search").addEventListener("click", () => {
     //initializations
     let searchInput = document.getElementById("search-input").value;
-    let elements = document.querySelectorAll(".nombre");
+    let elements = document.querySelectorAll(".producto");
     let cards = document.querySelectorAll(".categoria");
   
     //loop through all elements
@@ -167,14 +167,14 @@ for (let categoria of "contenedor-productos") {
       //check if text includes the search value
       if (element.innerText.includes(searchInput.toUpperCase())) {
         //display matching card
-        cards[index].classList.remove("hide");
+        card[index].classList.remove("hide");
       } else {
         //hide others
-        cards[index].classList.add("hide");
+        card[index].classList.add("hide");
       }
     });
   });
-  console.log(elements)
+
 
   //Initially display all products
   window.onload = () => {
