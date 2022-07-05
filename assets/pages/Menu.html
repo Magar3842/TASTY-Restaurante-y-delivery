@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
@@ -54,8 +55,8 @@
   </header>
 <section>
   <div class="header-announcement background--primary">
-      <h1 class="header-announcement__text contrast_text--primary">NUESTRAS PROPUESTAS</h1>
-      <P class="header-announcement__text contrast_text--primary">"Envío gratis a partir de $5000 por Correo Argentino."
+      <h1 class="header-announcement__text contrast_text--primary">Selecciona tu menu y pedilo para llevar!!!</h1>
+      <P class="header-announcement__text contrast_text--primary">"Envío gratis a partir de $5000, Delivery propio y por las plataformas RAPI UBER EATS y PedidoYa"
       </P>
     </div>
     <div class="boton">
@@ -113,9 +114,9 @@
           <button class="button-value" onclick="filterProduct('Cakes')">
             Cakes</button>
       </div>
+
     <main>
-   
-      <section id="contenedor-productos">
+         <section id="contenedor-productos">
 
         <!--<div class="card">
            <img src="/assets/img/menu/burger4.jpg" alt="burguer">
@@ -125,9 +126,7 @@
             <button class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
         </div>-->
       </section>
-    
-  </main>
-
+   
   <div class="modal-contenedor">
     <div class="modal-carrito">
       <h3>Carrito</h3>
@@ -143,11 +142,29 @@
       </div>
       <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
       <button id="vaciarCarrito" class="boton-eliminar">Vaciar carrito</button>
-    </div>
-  </div>
+      <br>
+      <hr>
+      <button id="finalizarCompra" class="boton-eliminar">Finalizar compra</button>
+    <br>
 
-  <div class="pedido-final" id="pedido-final"></div>
-  <div class="form-cliente container-fluid form" id="form-cliente"></div>
+    <section class="container my-5">
+      <h2>Formulario envio</h2>
+      <form id="my-form">
+
+          <input type="text" id="input-nombre" placeholder="Tu nombre" class="form-control my-2"/>
+          <input type="text" id="input-direccion" placeholder="Tu dirección de envio" class="form-control my-2"/>
+          <input type="password" id="input-pass" placeholder="Contraseña" class="form-control my-2"/>
+          <button id="btn-pass">Mostrar password</button>
+          <hr>
+          
+          <a href="https://www.pedidosya.com.ar/restaurantes/buenos-aires" class="boton-eliminar">Delivery</a>
+      </form>
+        </section>
+    </div>
+   </div>
+<section>
+  <img src="/assets/img/nosotros/delivery-fondo.jpg" alt="delivery" srcset="">
+</section>
   </main>
 
   <footer>
@@ -159,6 +176,9 @@
             <i class="fas fa-circle"></i>
           </div>
           <p>2022 TASTY All Rights Reserved.</p>
+          <p style="text-align: center;">"Te esperamos todos los dias de 7 a 01 hs. Podes hacer tu pedido para delivery y take away."</p>
+          <p style="text-align: center;"><strong>"Propuestas para todos los gustos y preferencias."</strong></p>
+          <p style="text-align: center;"><strong>Formas de pago:</strong>"VISA MASTERCARD BIMO MODO MERCADOPAGO LEMON CRIPTOMONEDAS</p>
         </div>
         <div class="footer-div">
           <div class="social-media">
@@ -196,11 +216,12 @@
   </footer>
 
   <script defer src="/assets/js/menues.js"></script>
-  <script defer src="/assets/js/modal.js"></script>
   <script defer src="/assets/js/deliapp.js"></script>
-  <script defer src="/assets/js/miarchivo.js"></script>
-  
+  <script defer src="/assets/js/modal.js"></script>
+    <script defer src="/assets/js/miarchivo.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+ 
 
 </body>
-
 </html>

@@ -967,14 +967,15 @@ footer {
 }
 
 .background--primary, .background--primary-hover:hover {
-  background-color: #4bddbe;
-}
+  background-color: #6451a8;
+  }
 
 .header-announcement__text {
   text-align: center;
   padding: 0px 0px;
   box-sizing: border-box;
-  font-size: 1.9375rem;
+  font-size: 2rem;
+  font-style: italic;
 }
 
 .contrast_text--primary, .contrast_text--primary-hover:hover {
