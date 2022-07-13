@@ -1,3 +1,5 @@
+// == selectores ==
+
 const productosContainer = document.querySelector('#contenedor-productos')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
 
@@ -7,18 +9,20 @@ const precioTotal = document.querySelector('#precioTotal')
 const btnVaciar = document.getElementById('vaciarCarrito')
 
 
-// SE ADAPTA FUNCION CARRITO CON OPERADOR OR
+// carrito en localstore y archivo JSON
 
-const carritoEnLS = JSON.parse ( localStorage.getItem('carrito')) || []
+const carrito = JSON.parse (localStorage.getItem('carrito')) || []
 
-//let carrito
-//const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
+let menu = []
 
 // generar el DOM de todos los productos
-// se agrega OPERADOR TERNARIO PARA EN ENVIO GRATIS
+fetch('/assets/menu.json')
+.then ((resp) => resp.json ())
+.then ((data) => {     
+     menu = data
 
-productosMenu.forEach((producto) => {
-    const div = document.createElement('div')
+menu.forEach ((producto) => {
+  const div = document.createElement('div')
     div.classList.add('producto')
 
     div.innerHTML = `
@@ -34,56 +38,68 @@ productosMenu.forEach((producto) => {
                   <br>
                 `
 
-    productosContainer.append(div)
-
-    console.log(producto)
-})
+          productosContainer.append(div)
+      })
+    })
 
 // function agregarAlCarrito() {
+// evento de mostrar mensaje cuando selecciona productos en el carrito a chequear
 
-// }
+//function agregarAlCarrito(id) {
+  // const item = productosMenu.find((producto) => producto.id === id)
 
-//se agrega evento de mostrar mensaje cuando selecciona productos en el carrito a chequear
+  const agregarAlCarrito = (productId) => {
+  const itemInCart = carrito.find((producto) => producto.id === productId)
 
-const agregarAlCarrito = (id) => {
-    const item = productosMenu.find( (producto) => producto.id === id)
-    carrito.push(item)
+  if (itemInCart) {
+    itemInCart.cantidad += 1
+    showMensaje(itemInCart.nombre)
+  } else {
+    const { id, nombre, precio } = menu.find((producto) => producto.id === productId)
 
-    /*const itemInCart = carritoEnLS.find((producto) => producto.id === id)
+    const itemToCart = {
+      id,
+      nombre,
+      precio,
+      cantidad: 1
+    }
+    carrito.push(itemToCart)
+    showMensaje(nombre)
 
-    if (itemInCart) {
-        itemInCart.cantidad += 1
-        showMensaje(itemInCart.nombre)
+  }
 
-        console.log(itemInCart)
+  localStorage.setItem('carrito', JSON.stringify(carrito))
 
-    } else {
-        const {id, nombre, precio} = productosMenu.find( (producto) => producto.id === id)
-    
-        const itemToCart = {
-            id, 
-            nombre, 
-            precio, 
-            cantidad: 1
-        }
-        carrito.push(itemToCart)
-        showMensaje(nombre)
+  console.log(carrito)
+  renderCarrito()
+  renderCantidad()
+  renderTotal()
 
-       }*/
-
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-
-    console.log(carrito)
-    renderCarrito()
-    renderCantidad()
-    renderTotal()
 }
+
+//remover del carrito productos
 
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
-    const indice = carrito.indexOf(item)
-    carrito.splice(indice, 1)
+    
+    item.cantidad -=1
 
+    if (item.cantidad === 0) {
+      const indice = carrito.indexOf(item)
+      carrito.splice(indice, 1)
+    }
+
+    Toastify({
+      text: `Se eliminó 1 unidad de ${item.nombre}`,
+      position: 'left',
+      gravity: 'bottom',
+      duration: 5000,
+      style: {
+          background: "linear-gradient(to right, #f17b5d, #f02f2f)",
+        }
+      
+      }).showToast()
+    
     localStorage.setItem('carrito', JSON.stringify(carrito))
 
     renderCarrito()
@@ -91,10 +107,11 @@ const removerDelCarrito = (id) => {
     renderTotal()
 }
 
-const vaciarCarrito = () => {
-    carrito.length = 0
+// vaciar carrito
 
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+const vaciarCarrito = () => {
+   carrito.length = 0
+   localStorage.setItem('carrito', JSON.stringify(carrito))
 
     renderCarrito()
     renderCantidad()
@@ -116,7 +133,7 @@ btnVaciar.addEventListener('click', () => {
       cancelButtonText: 'No, cancelar'
     }).then( (result) => {
           if (result.isConfirmed) {
-              renderTotal()
+              vaciarCarrito()
               botonCerrar.click()
               Toastify({
                   text: 'Se vació el carrito',
@@ -126,10 +143,12 @@ btnVaciar.addEventListener('click', () => {
                   style: {
                       background: "linear-gradient(to right, #f17b5d, #f02f2f)",
                     }
-              }).showToast()
-          }
-    } )
-})
+                  }).showToast()
+                }
+          } )
+    })   
+              
+
 
 const renderCarrito = () => {
     carritoContenedor.innerHTML = ''
@@ -140,6 +159,7 @@ const renderCarrito = () => {
 
         div.innerHTML = `
                     <p>${item.nombre}</p>
+                    <p>Cantidad: ${item.cantidad}</p>
                     <p>Precio: $${item.precio}</p>
                     <button onclick="removerDelCarrito(${item.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
                     `
@@ -149,9 +169,8 @@ const renderCarrito = () => {
 }
 
 const renderCantidad = () => {
-    contadorCarrito.innerText = carrito.length
+    contadorCarrito.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
 }
-
 
 //se agrega un evento de mensaje al agregar productos al carrito
 
@@ -163,16 +182,6 @@ const renderTotal = () => {
 
     precioTotal.innerText = total
 } 
-
-if (carritoEnLS) {
-    carrito = carritoEnLS
-    renderCarrito()
-    renderCantidad()
-    renderTotal()
- } else {
-    carrito = []
-}
- 
 
 const showMensaje = (nombre) => {
   Toastify({
@@ -188,6 +197,12 @@ const showMensaje = (nombre) => {
         }
   }).showToast()
 }
+
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
+
+ 
 
 const btnFinalizar = document.getElementById('finalizarCompra')
 
@@ -219,15 +234,10 @@ btnFinalizar.addEventListener('click', () => {
 })
 
 //desestructuro y selecciono los productos de la misma categoria
-/*FUNCION SELECCIONAR PRODUCTOS*/
+//FUNCION SELECCIONAR PRODUCTOS
 //const prodFiltrados = productosMenu.filter( (prod) => prod.categoria !== "Burguer" )
-for (let productosMenu of "contenedor-productos") {
-   
-    document.getElementById("id").append(div.card);
-  }
- 
+//parameter passed from button (Parameter same as category)
 
-  //parameter passed from button (Parameter same as category)
   function arrayfilter(value) {
     //Button class code
     let buttons = document.querySelectorAll(".button-value");
@@ -241,43 +251,42 @@ for (let productosMenu of "contenedor-productos") {
     });
    
    //select all cards
-    let elements = document.querySelectorAll("contenedor-productos");
+    let elements = document.querySelectorAll('contenedor-productos');
     //loop through all cards
     elements.forEach((element) => {
       //display all cards on 'all' button click
       if (value == "all") {
-        element.classList.remove("hide");
+        element.classList.remove('producto');
       } else {
         //Check if element contains category class
         if (element.classList.contains(value)) {
           //display element based on category
-          element.classList.remove("hide");
+          element.classList.remove('producto');
         } else {
           //hide other elements
-          element.classList.add("hide");
+          element.classList.add('producto');
         }
       }
     });
   }
-  
-  console.log (element)
-
+    
   //Search button click
   document.getElementById("search").addEventListener("click", () => {
     //initializations
-    let searchInput = document.getElementById("search-input").value;
-    let elements = document.querySelectorAll(".producto");
-    let cards = document.querySelectorAll(".categoria");
+    let searchInput = document.getElementById('search-input').value;
+    let elements = document.querySelectorAll('.producto');
+    let card = document.querySelectorAll('.categoria');
   
+
     //loop through all elements
     elements.forEach((element, index) => {
       //check if text includes the search value
       if (element.innerText.includes(searchInput.toUpperCase())) {
         //display matching card
-        card[index].classList.remove("hide");
+        card[index].classList.remove('producto');
       } else {
         //hide others
-        card[index].classList.add("hide");
+        card[index].classList.add('producto');
       }
     });
   });
@@ -285,7 +294,16 @@ for (let productosMenu of "contenedor-productos") {
 
   //Initially display all products
   window.onload = () => {
-    filterProduct("all");
+    arrayfilter("all");
+    /* arrayfilter("FastFood");
+    arrayfilter("Pizza");
+    arrayfilter("Pasta");
+    arrayfilter("Salads");
+    arrayfilter("Pescados");
+    arrayfilter("Drinks");
+    arrayfilter("Breakfast");
+    arrayfilter("Cakes");  */
+
   };
 
 

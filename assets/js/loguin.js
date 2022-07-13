@@ -56,3 +56,43 @@ if (mediopago === "efectivo") {
       })
     }
   })*/
+
+  const consultarTutor = (tutor) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const match = DBtutores.find((el) => el.nombre === tutor)
+
+            match ? resolve(match) : reject("No se encontraron resultados")
+        }, 3000)
+    })
+}
+
+
+
+
+const btnBuscar = document.querySelector('#btn-busqueda')
+const inputBusqueda = document.querySelector('#tutor-busqueda')
+const containerResultado = document.querySelector('#container-resultado')
+
+btnBuscar.addEventListener('click', () => {
+    const value = inputBusqueda.value
+    containerResultado.innerHTML = `<h3>Buscando....</h3>`
+
+    consultarTutor(value)
+        .then( (resp) => {
+            console.log(resp)
+
+            containerResultado.innerHTML = `
+                <h3>Tutor: ${resp.nombre}</h3>
+                <p>Experiencia: ${resp.exp}</p>
+                <small>Id n°: ${resp.id}</small>
+            `
+        } )
+        .catch( (err) => {
+            console.log(err)
+
+            containerResultado.innerHTML = `
+                <h3>${err}</h3>
+            `
+        })
+})
