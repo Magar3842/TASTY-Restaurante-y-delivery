@@ -18,10 +18,13 @@
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-
 <body>
+  <div class="header-announcement background--primary pt-20">
+    <h1 class="header-announcement__text contrast_text--primary"> Envío gratis a partir de $5000, Delivery propio y por las plataformas RAPI - UBER EATS - PedidoYa</h1>
+     </div>
   <header>
-    <div class="container-fluid p-20">
+    
+        <div class="container-fluid">
       <nav class="nav">
         <div class="menu-toggle">
           <i class="fas fa-bars"></i>
@@ -53,14 +56,10 @@
         </ul>
       </nav>
     </div>
+    
   </header>
 <section>
-  <div class="header-announcement background--primary">
-    <h1 class="header-announcement__text contrast_text--primary">Selecciona tu menu y pedilo para llevar!!!</h1>
-      <P class="header-announcement__text contrast_text--primary">"Envío gratis a partir de $5000, Delivery propio y por las plataformas RAPI UBER EATS y PedidoYa"
-      </P>
-    </div>
-    <div class="boton">
+      <div class="boton">
       <button class="button-p" id="boton-carrito"><span id="contadorCarrito">0</span><svg
           xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart4"
           viewBox="0 0 16 16">
@@ -90,29 +89,42 @@
       </div>
      </div>
     <div>
-    <div class="wrapper">
-      <div id="search-container">
-        <input type="search" id="search-input" placeholder="Busque nuestras propuestas aqui.." />
-        <button id="search">Search</button>
-      </div>
+   <!--  <div class="wrapper">
+      <section class="container my-5">
+        <h1 id="titulo">Tips, Recetas, explora mas...</h1>
+        <hr>
+        <h2>Food Rest API</h2>
+        <hr>
+        <div id="recetas-container">
+        </div>
+        <button id="anterior"class="btn btn-outline-primary ">Anterior</button>
+        <button id="siguiente"class="btn btn-primary mx-2">Siguiente</button>
+      </section>
+ -->
+      <!-- <div id="search-container">
+        <input type="search" id="search-input" placeholder="Tips, recetas, explora..." />
+        <button class="btn cta-btn">Search</button>
+        <div id="container-resultado"></div>        
+      </div> -->
+      
       <br>
-      <div id="button">
-        <button class="button-value" onclick="arrayfilter('all')">All</button>
-        <button class="button-value" onclick="arrayfilter('FastFood')">
+      <div id="btn cta-btn">
+        <button class="button-value" onclick="filterproduct('todos')">Todos</button>
+        <button class="button-value" onclick="filterproduct('FastFood')">
           FastFood</button>
-        <button class="button-value" onclick="arrayfilter('Pizza')">
+        <button class="button-value" onclick="filterproduct('Pizza')">
           Pizza</button>
-          <button class="button-value" onclick="arrayfilter('Pasta')">
+          <button class="button-value" onclick="filterproduct('Pasta')">
             Pasta</button>
-        <button class="button-value" onclick="arrayfilter('Salads')">
+        <button class="button-value" onclick="filterproduct('Salads')">
           Salads</button>
-        <button class="button-value" onclick="arrayfilter('Pescados')">
+        <button class="button-value" onclick="filterproduct('Pescados')">
           Pescados</button>
-        <button class="button-value" onclick="arrayfilter('Drinks')">
+        <button class="button-value" onclick="filterproduct('Drinks')">
           Drinks</button>
-        <button class="button-value" onclick="arrayfilter('Breakfast')">
+        <button class="button-value" onclick="filterproduct('Breakfast')">
           Breakfast</button>
-          <button class="button-value" onclick="arrayfilter('Cakes')">
+          <button class="button-value" onclick="filterproduct('Cakes')">
             Cakes</button>
       </div>
 

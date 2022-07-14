@@ -238,17 +238,26 @@ btnFinalizar.addEventListener('click', () => {
 //const prodFiltrados = productosMenu.filter( (prod) => prod.categoria !== "Burguer" )
 //parameter passed from button (Parameter same as category)
 
-  function arrayfilter(value) {
-    //Button class code
+  function filterproduct(value) {
+    limpiarrender()
+
+  if (value == 'todos') {
+    renderproducts(productosMenu)}
+    else {
+      productosfiltrados = productosMenu.filter((product)=>producto.categoria==value)
+      renderproducts (productosfiltrados)  
+      }
+    }
+
+    window.onload = () => {
+      filterproduct ("todos");
+    };
+
+    /* //Button class code
     let buttons = document.querySelectorAll(".button-value");
     buttons.forEach((button) => {
       //check if value equals innerText
-      if (value.toUpperCase() == button.innerText.toUpperCase()) {
-        button.classList.add("active");
-      } else {
-        button.classList.remove("active");
-      }
-    });
+      
    
    //select all cards
     let elements = document.querySelectorAll('contenedor-productos');
@@ -290,22 +299,7 @@ btnFinalizar.addEventListener('click', () => {
       }
     });
   });
-
-
-  //Initially display all products
-  window.onload = () => {
-    arrayfilter("all");
-    /* arrayfilter("FastFood");
-    arrayfilter("Pizza");
-    arrayfilter("Pasta");
-    arrayfilter("Salads");
-    arrayfilter("Pescados");
-    arrayfilter("Drinks");
-    arrayfilter("Breakfast");
-    arrayfilter("Cakes");  */
-
-  };
-
+ */
 
   //FORMULARIO DE ENVIO DE COMPRA
 
