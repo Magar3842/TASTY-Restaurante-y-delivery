@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://rapidapi.com/thecocktaildb/api/the-cocktail-db/">
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
@@ -21,10 +22,10 @@
   <header>
     <div class="container-fluid p-20">
       <nav class="nav">
-        <div class="menu-toggle">
+        <!-- <div class="menu-toggle">
           <i class="fas fa-bars"></i>
           <i class="fas fa-times"></i>
-        </div>
+        </div> -->
         <a href="#" class="logo">TASTY</a>
         <ul class="nav-list">
           <li class="nav-item">
@@ -37,16 +38,16 @@
             <a href="/assets/pages/Menu.html" class="nav-link">Menu</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Reservaciones</a>
+            <a href="/assets/pages/reservas.html" class="nav-link">Reservas</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Delivery</a>
+            <a href="/assets/pages/Menu.html" class="nav-link">Delivery</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Contacto</a>
           </li>
            <li>
-              <a href="#" class="nav-link text-white">Login<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <a href="/assets/pages/validation_form.html" class="nav-link text-white">Login<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                 </svg>
@@ -67,6 +68,7 @@
         </div>
       </div>
     </section>
+    
     <section class="dis-sto">
       <div class="container">
         <div class="res-info">
@@ -99,6 +101,27 @@
         </div>
       </div>
     </section>
+<section>
+  <center> 
+    <section class="video">
+                 <h2 class="major"><span>Visita virtual del menu</span></h2>
+                 <video poster="assets/img/nosotros/restaurante1.jpg" controls="controls">
+                   <source src="assets/videos/production ID_5101338.mp4" type="video/mp4" />
+                 </video>
+          </section>
+      </center>
+</section>
+    <section class="global" >
+      <h1 id="titulo" class="h2-sub">Consulta nuestras propuestas de Cocktails y tragos</h1>
+      <h2>Explora mas....</h2>
+      <div id="tragos-container">
+
+        
+      </div>
+      <button id="anterior"class="btn btn-outline-primary ">Anterior</button>
+      <button id="siguiente"class="btn btn-primary mx-2">Siguiente</button>
+    </section>
+
     <section class="disco">
       <div class="container">
         <div class="res-info">
@@ -143,9 +166,9 @@
      <section>
       <div class="container">
         <div class="res-info">
-          <div class="image-group">
-            <img src="assets/img/delivery1.jpg" alt="">
-            <img src="assets/img/delivery2.jpg" alt="">
+          <div class="image-group_envio">
+            <img src="/assets/img/nosotros/delivery1.jpg" alt="">
+            <img src="/assets/img/nosotros/delivery2.jpg" alt="">
           </div>
           <div class="res-des pad-rig">
             <div class="global">
@@ -163,8 +186,8 @@
         </div>
       </div>
     </section>
-    <section class="pb bt">
-      <img src="/assets/img/nosotros/delivery-fondo.jpg" alt="delivery" srcset="">
+    <section class="res-info">
+      <a href="/assets/pages/Menu.html" class="btn cta-btn">Pedidos<img src="/assets/img/nosotros/pedidos.jpg"></a>
     </section>
   <footer>
     <div class="container">
@@ -216,8 +239,7 @@
   </footer>
   <script defer src="/assets/js/menues.js"></script>
   <script defer src="/assets/js/modal.js"></script>
-  <script defer src="/assets/js/deliapp.js"></script>
-  <script defer src="/assets/js/miarchivo.js"></script>
+    <script defer src="/assets/js/deliapp.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>

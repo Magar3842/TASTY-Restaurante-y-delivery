@@ -74,6 +74,7 @@ menu.forEach ((producto) => {
   renderCarrito()
   renderCantidad()
   renderTotal()
+  renderTotalCompra()
 
 }
 
@@ -105,6 +106,7 @@ const removerDelCarrito = (id) => {
     renderCarrito()
     renderCantidad()
     renderTotal()
+    renderTotalCompra()
 }
 
 // vaciar carrito
@@ -116,6 +118,7 @@ const vaciarCarrito = () => {
     renderCarrito()
     renderCantidad()
     renderTotal()
+    renderTotalCompra()
 }
 
 //se agrega evento al boton vaciar
@@ -183,6 +186,31 @@ const renderTotal = () => {
     precioTotal.innerText = total
 } 
 
+/* const renderEnvio = () => {
+  let enviar = 0
+  carrito.forEach((producto) => {
+      
+    enviar += producto.precio * producto.cantidad
+  })
+ "freeshipping": false,
+  costoEnvio.innerText = enviar
+} */
+
+/* var freeshipping = 250
+
+const renderTotalCompra = () => {
+  let pagar = 0
+  carrito.forEach((producto) => {
+    if { (producto.freeshipping === false)
+      totalCompra += (producto.precio * producto.cantidad) + 'freeshipping'
+    }
+     
+    totalCompra.innerText = pagar
+      
+  })
+  
+} */
+
 const showMensaje = (nombre) => {
   Toastify({
       text: `Se agregó 1 unidad de ${nombre} al carrito!`,
@@ -201,6 +229,7 @@ const showMensaje = (nombre) => {
     renderCarrito()
     renderCantidad()
     renderTotal()
+    renderTotalCompra()
 
  
 
@@ -238,116 +267,39 @@ btnFinalizar.addEventListener('click', () => {
 //const prodFiltrados = productosMenu.filter( (prod) => prod.categoria !== "Burguer" )
 //parameter passed from button (Parameter same as category)
 
-  function filterproduct(value) {
+function limpiarrender(){
+  document.querySelectorAll('.producto').forEach(e => e.remove());
+}
+
+function filterproduct(value) {
     limpiarrender()
 
   if (value == 'todos') {
-    renderproducts(productosMenu)}
+    menu.forEach()
+    //VER QUE PONER PARA LLAMAR A LA BASE Y HACER EL FILTRADO
+  
+  }  
     else {
-      productosfiltrados = productosMenu.filter((product)=>producto.categoria==value)
-      renderproducts (productosfiltrados)  
+      productosfiltrados = menu.filter((product)=>producto.categoria==value)
+      menu.forEach (productosfiltrados)  
       }
     }
 
     window.onload = () => {
-      filterproduct ("todos");
-    };
-
-    /* //Button class code
-    let buttons = document.querySelectorAll(".button-value");
-    buttons.forEach((button) => {
-      //check if value equals innerText
-      
-   
-   //select all cards
-    let elements = document.querySelectorAll('contenedor-productos');
-    //loop through all cards
-    elements.forEach((element) => {
-      //display all cards on 'all' button click
-      if (value == "all") {
-        element.classList.remove('producto');
-      } else {
-        //Check if element contains category class
-        if (element.classList.contains(value)) {
-          //display element based on category
-          element.classList.remove('producto');
-        } else {
-          //hide other elements
-          element.classList.add('producto');
-        }
-      }
-    });
-  }
-    
-  //Search button click
-  document.getElementById("search").addEventListener("click", () => {
-    //initializations
-    let searchInput = document.getElementById('search-input').value;
-    let elements = document.querySelectorAll('.producto');
-    let card = document.querySelectorAll('.categoria');
-  
-
-    //loop through all elements
-    elements.forEach((element, index) => {
-      //check if text includes the search value
-      if (element.innerText.includes(searchInput.toUpperCase())) {
-        //display matching card
-        card[index].classList.remove('producto');
-      } else {
-        //hide others
-        card[index].classList.add('producto');
-      }
-    });
-  });
- */
-
-  //FORMULARIO DE ENVIO DE COMPRA
-
-const formulario = document.querySelector('#my-form')
-const inputNombre = document.querySelector('#input-nombre')
-const inputDireccion = document.querySelector('#input-direccion')
-const btnEnviar = document.querySelector('#btn-enviar')
-
-inputNombre.addEventListener('keydown', (event) => {
-  if (inputNombre.value.length <= 4) {
-    inputNombre.classList.add('border-danger')
-    inputNombre.classList.remove('border-success')
-} else {
-    inputNombre.classList.add('border-success')
-    inputNombre.classList.remove('border-danger')
-}
-})
-
-inputDireccion.addEventListener('input', () => {
-  if (inputDireccion.value.length <= 8) {
-    inputDireccion.classList.add('border-danger')
-    inputDireccion.classList.remove('border-success')
-} else {
-    inputDireccion.classList.add('border-success')
-    inputDireccion.classList.remove('border-danger')
-}
-})
-formulario.addEventListener('submit', (e) => {
-  e.preventDefault()
-  console.log(e)
-
-  const userData = {
-    nombre: inputNombre.value,
-    direccion: inputDireccion.value,
-    password: inputPassword.value
-}
-
-console.log(userData)
-})
-
-const inputPassword = document.querySelector('#input-pass')
-const btnPass = document.querySelector('#btn-pass')
-
-btnPass.addEventListener('click', (e) => {
-    e.preventDefault()
-    if (inputPassword.type === "password") {
-        inputPassword.type = "text"
-    } else {
-        inputPassword.type = "password"
+      filterproduct ('todos');
     }
-})
+
+// api de tragos para que el cliente explore
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'bb57cf8eeemsh9cf494a975c2323p1cf0e6jsn569311367d57',
+		'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
+	}
+};
+
+fetch('https://the-cocktail-db.p.rapidapi.com/list.php?i=list', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));

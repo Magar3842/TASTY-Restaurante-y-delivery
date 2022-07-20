@@ -11,7 +11,7 @@ botonCerrar.addEventListener('click', ()=>{
 })
 
 contenedorModal.addEventListener('click', ()=>{
-    // contenedorModal.classList.toggle('modal-active')
+//contenedorModal.classList.toggle('button')
     botonCerrar.click()
 })
 

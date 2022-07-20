@@ -1,98 +1,38 @@
-/* const mediopago= prompt ("Ingrese el medio de pago").toLowerCase ()
-const montoapagar= Number(prompt("ingrese el monto de la compra"))
+(function () {
+    
+  // Get the registration <form> element from the DOM.
+  var form = document.getElementById("registration-form");
+  var submitButton = form.querySelector("button");
+  // Get the <input> elements from the DOM.
+  var passwordInput = document.getElementById("password");
+  var confirmPasswordInput = document.getElementById("confirm-password");
 
-let interes
-let descuento
-console.log(mediopago)
-switch (mediopago){
-    case "tarjeta":
-        interes= 1.20
-        break;
-    case "efectivo":
-        descuento= 0.80
-        break;
-    case "mercadopago":
-        interes= 1.15
-        break;
-    default:
-        alert ("no ingresaste medio de pago valido")
-        break;
-}
-alert ("tu monto a pagar con " + mediopago + " es de pesos " + montoapagar * interes)
+  var checkPasswords = function() {
+      var passwordsMatch = passwordInput.value === confirmPasswordInput.value;
+      if (passwordsMatch) {
+          // Clear any previous error message.
+          confirmPasswordInput.setCustomValidity("");
+      } else {
+          // Setting this error message will prevent the form from being submitted.
+          confirmPasswordInput.setCustomValidity("Las contraseñas no coinciden.");
+      }
+  };
 
-if (mediopago === "efectivo") {
-    alert ("tu monto a pagar con " + mediopago + " es de pesos " + montoapagar * descuento)
-} */
+  var addPasswordInputEventListeners = function() {
+      passwordInput.addEventListener("input", checkPasswords, false);
+      confirmPasswordInput.addEventListener("input", checkPasswords, false);
+  };
 
-/*Swal.fire({
-    title: 'Submit your Github username',
-    input: 'text',
-    inputAttributes: {
-      autocapitalize: 'off'
-    },
-    showCancelButton: true,
-    confirmButtonText: 'Look up',
-    showLoaderOnConfirm: true,
-    preConfirm: (login) => {
-      return fetch(`//api.github.com/users/${login}`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.statusText)
-          }
-          return response.json()
-        })
-        .catch(error => {
-          Swal.showValidationMessage(
-            `Request failed: ${error}`
-          )
-        })
-    },
-    allowOutsideClick: () => !Swal.isLoading()
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire({
-        title: `${result.value.login}'s avatar`,
-        imageUrl: result.value.avatar_url
-      })
-    }
-  })*/
+  var formSubmissionAttempted = function() {
+      form.classList.add("submission-attempted");
+  };
 
-  const consultarTutor = (tutor) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const match = DBtutores.find((el) => el.nombre === tutor)
+  var addSubmitClickEventListener = function() {
+      submitButton.addEventListener("click", formSubmissionAttempted, false);
+  };
 
-            match ? resolve(match) : reject("No se encontraron resultados")
-        }, 3000)
-    })
-}
+  addPasswordInputEventListeners();
+  addSubmitClickEventListener();
 
+}());
 
-
-
-const btnBuscar = document.querySelector('#btn-busqueda')
-const inputBusqueda = document.querySelector('#tutor-busqueda')
-const containerResultado = document.querySelector('#container-resultado')
-
-btnBuscar.addEventListener('click', () => {
-    const value = inputBusqueda.value
-    containerResultado.innerHTML = `<h3>Buscando....</h3>`
-
-    consultarTutor(value)
-        .then( (resp) => {
-            console.log(resp)
-
-            containerResultado.innerHTML = `
-                <h3>Tutor: ${resp.nombre}</h3>
-                <p>Experiencia: ${resp.exp}</p>
-                <small>Id n°: ${resp.id}</small>
-            `
-        } )
-        .catch( (err) => {
-            console.log(err)
-
-            containerResultado.innerHTML = `
-                <h3>${err}</h3>
-            `
-        })
-})

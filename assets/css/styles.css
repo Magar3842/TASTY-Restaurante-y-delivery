@@ -39,7 +39,7 @@ p {
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     max-width: 122.5rem;
     margin: 0 auto;
     padding: 0 2.4rem;
@@ -68,7 +68,7 @@ header {
 .menu-toggle {
     color: aliceblue;
     font-size: 2.2rem;
-    position: absolute;
+    position: relative;
     top: 50%;
     transform: translateY(-50%);
     right: 2.5rem;
@@ -82,7 +82,7 @@ header {
 
 .nav-list {
     list-style: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 80%;
@@ -131,6 +131,9 @@ header {
     color: beige;
     font-size: 2rem;
     font-weight: 600;
+    padding-top: 20px;
+    padding-left: 20px;
+
 }
 
 .nav-item {
@@ -281,6 +284,13 @@ header {
     grid-gap: 1.5rem;
 }
 
+.image-group_envio {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
 .disco .res-des {
     padding-top: 3rem;
     margin-bottom: 0;
@@ -376,9 +386,9 @@ footer {
     section {
     padding: 7.9rem;
 }    
-.menu-toggle {
-    display:list-item;
-}
+/* .menu-toggle {
+    display:list-item; 
+}*/
 .nav {
     justify-content: space-between;
 }
@@ -1023,3 +1033,42 @@ footer {
 }
 
 
+/* Styles for the register page */
+
+.register {
+  background: url("/assets/img/nosotros/registrousuario.jpg") center no-repeat;
+  background-size: cover;
+}
+
+.register form {
+  max-width: 40rem;    
+  padding:2px;
+  cursor:pointer;
+  display:block;
+  margin: 0 auto;
+  text-align:left;
+}
+
+.register .field {
+   margin-bottom: 1rem;
+ 
+}
+
+.register label {
+   display: block;
+}
+
+.register input {
+   display: block;
+   padding: .5rem;
+   width: 100%;
+   box-sizing: border-box;
+}
+
+.register button {
+   padding: .5rem;
+}
+
+.register form.submission-attempted input:invalid {
+   border: 1px solid #b00;
+}
