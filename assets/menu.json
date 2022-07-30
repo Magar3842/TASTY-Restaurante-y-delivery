@@ -2,7 +2,7 @@
     "id": 1, 
     "categoria": "FastFood",
     "nombre": "Burguer Clasic 1",
-    "img": "/assets/img/menu/burger4.jpg",
+    "img": "/assets/img/menu/burguer4.jpg",
     "descripcion": "Hamburguesa vegetariana de garbanzos con cebolla, tomate y lechuga y guarnicion",
     "precio": 750,
     "freeshipping": false,

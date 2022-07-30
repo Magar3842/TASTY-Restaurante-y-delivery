@@ -1,0 +1,41 @@
+{
+    "coord": {
+        "lon": -58.45,
+        "lat": -34.6
+    },
+    "weather": [{
+        "id": 800,
+        "main": "Clear",
+        "description": "cielo claro",
+        "icon": "01d"
+    }],
+    "base": "stations",
+    "main": {
+        "temp": 19.48,
+        "feels_like": 19.68,
+        "temp_min": 18.92,
+        "temp_max": 21.19,
+        "pressure": 1015,
+        "humidity": 84
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.57,
+        "deg": 90
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1658857927,
+    "sys": {
+        "type": 1,
+        "id": 8224,
+        "country": "AR",
+        "sunrise": 1658832723,
+        "sunset": 1658869698
+    },
+    "timezone": -10800,
+    "id": 3433955,
+    "name": "Buenos Aires F.D.",
+    "cod": 200
+}

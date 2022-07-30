@@ -14,19 +14,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://rapidapi.com/thecocktaildb/api/the-cocktail-db/">
-    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link href="https://rapidapi.com/thecocktaildb/api/the-cocktail-db/">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="container-fluid p-20">
       <nav class="nav">
-        <!-- <div class="menu-toggle">
-          <i class="fas fa-bars"></i>
-          <i class="fas fa-times"></i>
-        </div> -->
-        <a href="#" class="logo">TASTY</a>
+        <a href="/indext.html" class="logo">TASTY</a>
         <ul class="nav-list">
           <li class="nav-item">
             <a href="#" class="nav-link active">Home</a>
@@ -35,27 +32,35 @@
             <a href="#" class="nav-link">Filosofia</a>
           </li>
           <li class="nav-item">
-            <a href="/assets/pages/Menu.html" class="nav-link">Menu</a>
+            <a href="/assets/pages/menu.html" class="nav-link">Menu</a>
           </li>
           <li class="nav-item">
-            <a href="/assets/pages/reservas.html" class="nav-link">Reservas</a>
+            <a href="/assets/pages/validation_form.html" class="nav-link">Registro</a>
           </li>
           <li class="nav-item">
-            <a href="/assets/pages/Menu.html" class="nav-link">Delivery</a>
+            <a href="/assets/pages/reservas.html" class="nav-link">Reservations</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Contacto</a>
+            <a href="/assets/pages/menu.html" class="nav-link">Take Away</a>
           </li>
-           <li>
-              <a href="/assets/pages/validation_form.html" class="nav-link text-white">Login<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-            </li>
-           </ul>
+          <li class="nav-item">
+            <a href="/assets/pages/checkout.html" class="nav-link">Delivery</a>
+          </li>
+          <li>
+            <a href="/assets/pages/validation_form.html" class="nav-link text-white">Login<svg
+                xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>
+
+  <main>
     <section class="hero" id="hero">
       <div class="container">
         <h2 class="h2-sub">
@@ -64,17 +69,24 @@
         <h1 class="head">TASTY Restaurante y Delivery</h1>
         <div class="he-des">
           <h5>Los esperamos siempre con buenas propuestas para disfrutar</h5>
-          <a href="/assets/pages/Menu.html" class="btn cta-btn">Explora</a>
+          <a href="/assets/pages/menu.html" class="btn cta-btn">Explora</a>
         </div>
       </div>
     </section>
-    
+
+    <!-- api del clima -->
+    <div class="container">
+      <div id="clima_actual" class="global"></div>
+    </div>
+
+
     <section class="dis-sto">
       <div class="container">
         <div class="res-info">
           <div>
-          <img src="assets/img/nosotros/portada.jpg" alt="">
-        </div>
+            <img src="assets/img/nosotros/portada.jpg" alt="">
+          </div>
+
           <div class="res-des pad-rig">
             <div class="global">
               <h2 class="h2-sub">
@@ -85,7 +97,9 @@
                 <i class="fas fa-circle"></i>
               </div>
             </div>
-            <p>Nuestra filsofia es descubrir nuevos sabores del mundo y entrgarlos al disfrute de los comensales. Un grupo de reconocidos chefs y gourmets dedican tiempo a elaborar las mejores recetas.</p>
+            <p>Nuestra filsofia es descubrir nuevos sabores del mundo y entrgarlos al disfrute de los comensales. Un
+              grupo
+              de reconocidos chefs y gourmets dedican tiempo a elaborar las mejores recetas.</p>
             <a href="#" class="btn cta-btn">Nosotros</a>
           </div>
         </div>
@@ -101,42 +115,38 @@
         </div>
       </div>
     </section>
-<section>
-  <center> 
-    <section class="video">
-                 <h2 class="major"><span>Visita virtual del menu</span></h2>
-                 <video poster="assets/img/nosotros/restaurante1.jpg" controls="controls">
-                   <source src="assets/videos/production ID_5101338.mp4" type="video/mp4" />
-                 </video>
-          </section>
+    </div>
+    <section>
+      <center>
+        <h2 class="head hea-dark"><span>Un poco de nosotros</span></h2>
+        <section class="video">
+          <video poster="assets/img/nosotros/restaurante2.jpg" controls="controls">
+            <source src="/assets/videos/Videos promocionales para restaurantes.mp4" type="video/mp4">
+          </video>
+          <video poster="assets/img/nosotros/restaurante2.jpg" controls="controls">
+            <source src="/assets/videos/The FoodBox Spot publicitario Mucho mas que una hamburguesa.mp4"
+              type="video/mp4">
+          </video>
+        </section>
       </center>
-</section>
-    <section class="global" >
-      <h1 id="titulo" class="h2-sub">Consulta nuestras propuestas de Cocktails y tragos</h1>
-      <h2>Explora mas....</h2>
-      <div id="tragos-container">
-
-        
-      </div>
-      <button id="anterior"class="btn btn-outline-primary ">Anterior</button>
-      <button id="siguiente"class="btn btn-primary mx-2">Siguiente</button>
     </section>
-
     <section class="disco">
       <div class="container">
         <div class="res-info">
-        <div class="res-des">
-          <div class="global">
-            <h2 class="h2-sub">
-              <span class="fil">D</span>escubre
-            </h2>
-            <h1 class="head hea-dark">Menu</h1>
-            <div class="circle">
-              <i class="fas fa-circle"></i>
+          <div class="res-des">
+            <div class="global">
+              <h2 class="h2-sub">
+                <span class="fil">D</span>escubre
+              </h2>
+              <h1 class="head hea-dark">Menu</h1>
+              <div class="circle">
+                <i class="fas fa-circle"></i>
+              </div>
             </div>
-          </div>
-          <p>Tenemos una gama amplia de variedad de pastas, pizzas, carnes, frutos de mar, bebidas y una vasta carta de vinos y cervezas para el deleite.</p>
-          <a href="#" class="btn cta-btn">Pide el menu</a>
+            <p>Tenemos una gama amplia de variedad de pastas, pizzas, carnes, frutos de mar, bebidas y una vasta carta
+              de
+              vinos y cervezas para el deleite.</p>
+            <a href="#" class="btn cta-btn">Pide el menu</a>
           </div>
           <hr>
           <div class="image-group pad-rig">
@@ -149,7 +159,7 @@
             <img src="assets/img/menu/meet.jpg" alt="">
             <img src="assets/img/menu/seafoodfry.jpg" alt="">
             <img src="assets/img/menu/snack1.jpg" alt="">
-            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -163,7 +173,7 @@
         </div>
       </div>
     </section>
-     <section>
+    <section>
       <div class="container">
         <div class="res-info">
           <div class="image-group_envio">
@@ -186,9 +196,19 @@
         </div>
       </div>
     </section>
-    <section class="res-info">
-      <a href="/assets/pages/Menu.html" class="btn cta-btn">Pedidos<img src="/assets/img/nosotros/pedidos.jpg"></a>
-    </section>
+    <center>
+      <section class="res-info">
+        <video width="156" height="156" preload="none"
+          style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/6416/6416402.png') 50% 50% / fit no-repeat;"
+          autoplay="autoplay" loop="true" muted="muted" playsinline="">
+          <source src="https://cdn-icons-mp4.flaticon.com/512/6416/6416402.mp4" type="video/mp4">
+        </video>
+        <a href="/assets/pages/menu.html" class="btn cta-btn">Pedidos<img src="/assets/img/nosotros/pedidos.jpg"></a>
+      </section>
+    </center>
+
+  </main>
+
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -199,9 +219,11 @@
             <i class="fas fa-circle"></i>
           </div>
           <p>2022 TASTY All Rights Reserved.</p>
-          <p style="text-align: center;">"Te esperamos todos los dias de 7 a 01 hs. Podes hacer tu pedido para delivery y take away."</p>
+          <p style="text-align: center;">"Te esperamos todos los dias de 7 a 01 hs. Podes hacer tu pedido para delivery
+            y take away."</p>
           <p style="text-align: center;"><strong>"Propuestas para todos los gustos y preferencias."</strong></p>
-          <p style="text-align: center;"><strong>Formas de pago:</strong>"VISA MASTERCARD BIMO MODO MERCADOPAGO LEMON CRIPTOMONEDAS</p>
+          <p style="text-align: center;"><strong>Formas de pago:</strong>"VISA MASTERCARD BIMO MODO MERCADOPAGO LEMON
+            CRIPTOMONEDAS</p>
         </div>
         <div class="footer-div">
           <div class="social-media">
@@ -229,6 +251,7 @@
             <form action="" class="news-form">
               <input type="text" class="news-input" placeholder="Escribe tu mail">
               <button class="news-btn" type="submit">
+                <span class="spinner-border spinner-border-sm"></span>
                 <i class="fas fa-envelope"></i>
               </button>
             </form>
@@ -239,8 +262,9 @@
   </footer>
   <script defer src="/assets/js/menues.js"></script>
   <script defer src="/assets/js/modal.js"></script>
-    <script defer src="/assets/js/deliapp.js"></script>
+  <script defer src="/assets/js/deliapp.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
+
 </html>

@@ -14,122 +14,133 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
+
 <body>
+
   <header>
-    <div>
+    <div class="container-fluid p-20">
+      <nav class="nav">
         <ul class="nav-list">
           <li class="nav-item">
             <a href="/indext.html" class="nav-link active">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Reservas</a>
+            <a href="/assets/pages/reservas.html" class="nav-link">Reservations</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Delivery</a>
+            <a href="/assets/pages/menu.html" class="nav-link">Take Away</a>
           </li>
-           <li>
-              <a href="#" class="nav-link text-white">Login<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-            </li>
-            </ul>
-  </div>
+          <li class="nav-item">
+            <a href="/assets/pages/checkout.html" class="nav-link">Delivery</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
   </header>
- <main>
- 
-  <div class="global">
-     <section class="register">
-      <center>
-      <h1 class="he-des">TASTY Restaurante y Delivery</h1>
-      <H2 class="he-des">Gracias por elegirnos!!</H2>
-      </center>
-      <br>
-      <div class="container">
-      <h2 class="major"><span>Inicia tu registro</span></h2>
-                      <form method="post" action="registered.html" id="registration-form">
-                      <div class="field">
-                          <label for="first-name">Nompre:</label>
-                          <input type="text" id="first-name" name="FirstName" required="required" autofocus="autofocus"/>
-                      </div>
-                      <div class="field">
-                          <label for="last-name">Apellido:</label>
-                          <input type="text" id="last-name" name="LastName" required="required"/>
-                      </div>
-                      <div class="field">
-                          <label for="email-address">Email address:</label>
-                          <input type="email" id="email-address" name="EmailAddress" required="required"/>
-                      </div>
-                      <div class="field">
-                          <label for="password">Choose a password:</label>
-                          <input type="password" id="password" name="Password" required="required" pattern="[a-zA-Z0-9]{5,}" title="At least 5 letters and numbers"/>
-                      </div>
-                      <div class="field">
-                          <label for="confirm-password">Confirm your password:</label>
-                          <input type="password" id="confirm-password" name="ConfirmPassword" required="required"/>
-                      </div>
-                      <div>
-                          <button class="btn cta-btn" type="submit">Registro</button>
-                      </div>
-                  </form>
-      </div>
-    </section>
- </div>
-</main>
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-content-about">
-        <h4>Nosotros</h4>
-        <div class="circle">
-          <i class="fas fa-circle"></i>
+  <main>
+    <div class="global">
+      <section class="register">
+        <center>
+          <h1 class="h2-sub">TASTY Restaurante y Delivery</h1>
+          <br>
+          <H2 class="h2-sub">Gracias por elegirnos!!</H2>
+        </center>
+        <br>
+        <div class="container">
+          <h2 class="h2-sub"><span>Inicia tu registro</span></h2>
+          <br>
+          <br>
+                 
+           <form method="post" action="registered.html" id="registration-form">
+            <div class="field">
+              <label for="first-name">Nompre:</label>
+              <input type="text" id="nombre" name="FirstName" required="required" autofocus="autofocus" />
+            </div>
+            <div class="field">
+              <label for="last-name">Apellido:</label>
+              <input type="text" id="apellido" name="LastName" required="required" />
+            </div>
+            <div class="field">
+              <label for="email-address">Email address:</label>
+              <input type="email" id="email" name="EmailAddress" required="required" />
+            </div>
+            <div class="field">
+              <label for="password">Choose a password:</label>
+              <input type="password" id="password" name="Password" required="required" pattern="[a-zA-Z0-9]{5,}"
+                title="At least 5 letters and numbers" />
+            </div>
+            <div class="field">
+              <label for="confirm-password">Confirm your password:</label>
+              <input type="password" id="confirm-password" name="ConfirmPassword" required="required" />
+            </div>
+            <div>
+              <input type="button" onclick="guardarDatos()" value="Guardar datos" />
+              <p id="datos" class="he-sub2">Pulsa para ver tu nombre y tu password.</p>
+              <input type="button" onclick="recuperarDatos()" value="Recuperar datos"/>
+
+            </div>
+          </form> -->
         </div>
-        <p>2022 TASTY All Rights Reserved.</p>
-        <p style="text-align: center;">"Te esperamos todos los dias de 7 a 01 hs. Podes hacer tu pedido para delivery
-          y take away."</p>
-        <p style="text-align: center;"><strong>"Propuestas para todos los gustos y preferencias."</strong></p>
-        <p style="text-align: center;"><strong>Formas de pago:</strong>"VISA MASTERCARD BIMO MODO MERCADOPAGO LEMON
-          CRIPTOMONEDAS</p>
-      </div>
-      <div class="footer-div">
-        <div class="social-media">
-          <h4>Siguenos</h4>
-          <ul class="social-icons">
-            <li>
-              <a href="#"><i class="fab fa-instagram-square"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-facebook-square"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fab fa-pinterest"></i></a>
-            </li>
-          </ul>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-content-about">
+          <h4>Nosotros</h4>
+          <div class="circle">
+            <i class="fas fa-circle"></i>
+          </div>
+          <p>2022 TASTY All Rights Reserved.</p>
+          <p style="text-align: center;">"Te esperamos todos los dias de 7 a 01 hs. Podes hacer tu pedido para delivery
+            y take away."</p>
+          <p style="text-align: center;"><strong>"Propuestas para todos los gustos y preferencias."</strong></p>
+          <p style="text-align: center;"><strong>Formas de pago:</strong>"VISA MASTERCARD BIMO MODO MERCADOPAGO LEMON
+            CRIPTOMONEDAS</p>
         </div>
-        <div>
-          <h4>Noticias</h4>
-          <form action="" class="news-form">
-            <input type="text" class="news-input" placeholder="Escribe tu mail">
-            <button class="news-btn" type="submit">
-              <i class="fas fa-envelope"></i>
-            </button>
-          </form>
+        <div class="footer-div">
+          <div class="social-media">
+            <h4>Siguenos</h4>
+            <ul class="social-icons">
+              <li>
+                <a href="#"><i class="fab fa-instagram-square"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Noticias</h4>
+            <form action="" class="news-form">
+              <input type="text" class="news-input" placeholder="Escribe tu mail">
+              <button class="news-btn" type="submit">
+                <i class="fas fa-envelope"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-<script defer src="js/modal.js"></script>
-<script defer src="js/menues.js"></script>
-<script defer src="js/deliapp.js"></script>
-<script defer src="js/loguin.js"></script>
+  </footer>
+
+ <script defer src="/assets/js/form-validation.js"></script>
+ 
+
 </body>
+
 </html>

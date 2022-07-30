@@ -7,6 +7,30 @@ const contadorCarrito = document.querySelector('#contadorCarrito')
 const precioTotal = document.querySelector('#precioTotal')
 
 const btnVaciar = document.getElementById('vaciarCarrito')
+const climaStatus = document.querySelector('#clima_actual')
+
+
+// api del clima OPENWATHER
+
+let climaEstado = []
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?id=3433955&appid=3cd8501a0274ae0967a4e3cd878a40a1&lang=sp&units=metric`)
+.then((resp) => resp.json())
+.then((data) => {
+    console.log(data)
+
+    climaStatus.innerHTML =`
+    
+    <h3>Ciudad: ${data.name} </h3>
+    <h3>Pais: ${data.sys.country} </h3>
+    <p>Temp actual: ${data.main.temp} °</p>
+    <p>Temp max: ${data.main.temp_max} °</p>
+    <p>Humedad actual: ${data.main.humidity}%</p>
+              
+    `
+    
+})
+
 
 
 // carrito en localstore y archivo JSON
@@ -74,7 +98,7 @@ menu.forEach ((producto) => {
   renderCarrito()
   renderCantidad()
   renderTotal()
-  renderTotalCompra()
+  
 
 }
 
@@ -106,7 +130,7 @@ const removerDelCarrito = (id) => {
     renderCarrito()
     renderCantidad()
     renderTotal()
-    renderTotalCompra()
+  
 }
 
 // vaciar carrito
@@ -118,7 +142,7 @@ const vaciarCarrito = () => {
     renderCarrito()
     renderCantidad()
     renderTotal()
-    renderTotalCompra()
+   
 }
 
 //se agrega evento al boton vaciar
@@ -186,31 +210,6 @@ const renderTotal = () => {
     precioTotal.innerText = total
 } 
 
-/* const renderEnvio = () => {
-  let enviar = 0
-  carrito.forEach((producto) => {
-      
-    enviar += producto.precio * producto.cantidad
-  })
- "freeshipping": false,
-  costoEnvio.innerText = enviar
-} */
-
-/* var freeshipping = 250
-
-const renderTotalCompra = () => {
-  let pagar = 0
-  carrito.forEach((producto) => {
-    if { (producto.freeshipping === false)
-      totalCompra += (producto.precio * producto.cantidad) + 'freeshipping'
-    }
-     
-    totalCompra.innerText = pagar
-      
-  })
-  
-} */
-
 const showMensaje = (nombre) => {
   Toastify({
       text: `Se agregó 1 unidad de ${nombre} al carrito!`,
@@ -229,9 +228,31 @@ const showMensaje = (nombre) => {
     renderCarrito()
     renderCantidad()
     renderTotal()
-    renderTotalCompra()
 
- 
+
+    function realizarCalculo (){
+      if(document.getElementById('cantidadcuotas').value == 3){
+          document.getElementById('valorPorCuota').innerHTML = `El valor de cada cuota sera de $ ${((precioTotal.innerHTML / 3)*1.1).toFixed(2)}`
+          document.getElementById('valorTotal').innerHTML = `El valor total final sera de $ ${(precioTotal.innerHTML * 1.1).toFixed(2)}`
+          document.getElementById('invalidNumber').innerHTML = ""
+      }else  if (document.getElementById('cantidadcuotas').value == 6){
+          document.getElementById('valorPorCuota').innerHTML = `El valor de cada cuota sera de $ ${((precioTotal.innerHTML / 6)*1.2).toFixed(2)}`
+          document.getElementById('valorTotal').innerHTML = `El valor total final sera de $ ${(precioTotal.innerHTML * 1.2).toFixed(2)}`
+          document.getElementById('invalidNumber').innerHTML = ""
+      }else if (document.getElementById('cantidadcuotas').value == 12){
+          document.getElementById('valorPorCuota').innerHTML = `El valor de cada cuota sera de $ ${((precioTotal.innerHTML / 12)*1.3).toFixed(2)}`
+          document.getElementById('valorTotal').innerHTML = `El valor total final sera de $ ${(precioTotal.innerHTML * 1.3).toFixed(2)}`
+          document.getElementById('invalidNumber').innerHTML = ""
+      } else if (document.getElementById('cantidadcuotas').value != 3 || 6 || 12) {
+          document.getElementById('valorPorCuota').innerHTML = ""
+          document.getElementById('valorTotal').innerHTML = ""
+          document.getElementById('invalidNumber').innerHTML = `El dato ingresado no es valido`
+          
+      }
+    }
+    
+    console.log(precioTotal.innerHTML)
+
 
 const btnFinalizar = document.getElementById('finalizarCompra')
 
@@ -250,7 +271,7 @@ btnFinalizar.addEventListener('click', () => {
               vaciarCarrito()
               botonCerrar.click()
               Toastify({
-                  text: 'Se confirmo la compra',
+                  text: 'Se confirmo la compra, vaya al checkout para proceder al pago y envio',
                   position: 'left',
                   gravity: 'bottom',
                   duration: 5000,
@@ -261,45 +282,3 @@ btnFinalizar.addEventListener('click', () => {
           }
     } )
 })
-
-//desestructuro y selecciono los productos de la misma categoria
-//FUNCION SELECCIONAR PRODUCTOS
-//const prodFiltrados = productosMenu.filter( (prod) => prod.categoria !== "Burguer" )
-//parameter passed from button (Parameter same as category)
-
-function limpiarrender(){
-  document.querySelectorAll('.producto').forEach(e => e.remove());
-}
-
-function filterproduct(value) {
-    limpiarrender()
-
-  if (value == 'todos') {
-    menu.forEach()
-    //VER QUE PONER PARA LLAMAR A LA BASE Y HACER EL FILTRADO
-  
-  }  
-    else {
-      productosfiltrados = menu.filter((product)=>producto.categoria==value)
-      menu.forEach (productosfiltrados)  
-      }
-    }
-
-    window.onload = () => {
-      filterproduct ('todos');
-    }
-
-// api de tragos para que el cliente explore
-
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'bb57cf8eeemsh9cf494a975c2323p1cf0e6jsn569311367d57',
-		'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
-	}
-};
-
-fetch('https://the-cocktail-db.p.rapidapi.com/list.php?i=list', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
